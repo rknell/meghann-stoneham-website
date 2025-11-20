@@ -260,7 +260,7 @@ p {
 
 /* Hero with background image */
 .hero.with-image {
-    background-image: url('heroimage.png');
+    background-image: url('heroimage.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
