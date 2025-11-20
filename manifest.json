@@ -1,0 +1,25 @@
+{
+  "name": "Meghann Stoneham - Genetic Counsellor & Pharmacist",
+  "short_name": "Meghann Stoneham",
+  "description": "Genetic Counsellor and Registered Pharmacist specialising in functional conditions and root cause treatment",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/portrait.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/portrait.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
+

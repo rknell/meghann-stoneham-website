@@ -1,0 +1,37 @@
+# This file is for reference only - GitHub Pages doesn't support custom headers
+# If you migrate to Netlify, Cloudflare Pages, or Vercel, this file will work automatically
+
+/*
+  Cache-Control: public, max-age=3600, must-revalidate
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Cache CSS and JS for longer
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache images for 1 year
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpeg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+# Don't cache HTML
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+

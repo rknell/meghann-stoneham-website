@@ -6,12 +6,27 @@
     <meta name="description" content="Meghann Stoneham - Genetic Counsellor & Registered Pharmacist in Ormeau, Gold Coast. Specialising in functional conditions including migraines, chronic fatigue, IBS, hormonal issues, perimenopause, fibromyalgia, sleep issues. Root cause treatment approach.">
     <meta name="keywords" content="genetic counsellor, pharmacist, functional medicine, root cause treatment, migraines, chronic fatigue, IBS, hormonal issues, perimenopause, Ormeau, Gold Coast, Queensland, leaky gut, fibromyalgia, reflux, eczema, sleep issues">
     <meta name="author" content="Meghann Stoneham">
+    <meta name="theme-color" content="#2563eb">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Meghann Stoneham | Genetic Counsellor & Pharmacist | Ormeau, Gold Coast">
     <meta property="og:description" content="Specialising in functional conditions. Find and treat the root cause of migraines, chronic fatigue, hormonal issues, IBS, and more. Work your body smarter, not harder.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_AU">
+    <meta property="og:url" content="https://meghannstoneham.com.au">
+    <meta property="og:image" content="https://meghannstoneham.com.au/portrait.jpg">
+    
+    <!-- Resource Hints for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="heroimage.jpg" as="image" fetchpriority="high">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="portrait.jpg">
     
     <title>Meghann Stoneham | Genetic Counsellor & Pharmacist | Ormeau, Gold Coast</title>
     
@@ -30,11 +45,16 @@
       },
       "telephone": "+61452319179",
       "priceRange": "$$",
-      "url": window.location.href
+      "url": "https://meghannstoneham.com.au"
     }
     </script>
     
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Inline Critical CSS for Above-the-Fold Content -->
+    <style>
+        :root{--primary-blue:#2563eb;--navy-blue:#1e3a8a;--white:#ffffff;--off-white:#f8fafc;--light-blue:#dbeafe;--accent-blue:#93c5fd;--dark-gray:#334155;--text-dark:#1e293b}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;color:var(--text-dark);line-height:1.6;background-color:var(--white);overflow-x:hidden}html{scroll-behavior:smooth}.hero{height:100vh;min-height:600px;position:relative;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--primary-blue) 0%,var(--navy-blue) 100%);color:var(--white);overflow:hidden}.hero.with-image{background-image:url('heroimage.jpg');background-size:cover;background-position:center;background-repeat:no-repeat}.hero.with-image::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(37,99,235,0.80) 0%,rgba(30,58,138,0.90) 100%);z-index:0}.hero-content{position:relative;z-index:1;text-align:center;max-width:900px;padding:2rem}.navbar{position:fixed;top:0;left:0;right:0;background-color:rgba(255,255,255,0.95);backdrop-filter:blur(10px);box-shadow:0 1px 2px 0 rgba(0,0,0,0.05);z-index:1000;transform:translateY(-100%);transition:transform 0.3s ease}.navbar.visible{transform:translateY(0)}h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:700;line-height:1.2;margin-bottom:1rem;color:var(--white);text-shadow:2px 2px 8px rgba(0,0,0,0.5)}
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -90,7 +110,7 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-image slide-in-left">
-                    <img src="portrait.jpg" alt="Meghann Stoneham - Genetic Counsellor and Registered Pharmacist" class="portrait-image">
+                    <img src="portrait.jpg" alt="Meghann Stoneham - Genetic Counsellor and Registered Pharmacist" class="portrait-image" loading="lazy" width="400" height="533">
                 </div>
                 <div class="about-content slide-in-right">
                     <h2 class="section-title">About Meghann</h2>
@@ -250,7 +270,7 @@
                         
                         <div class="rate-item">
                             <h4>Whole Genome Genetic Testing & Analysis</h4>
-                            <p class="rate-price">$1,500</p>
+                            <p class="rate-price">$2,500</p>
                             <p class="rate-description">Complete genome sequencing and detailed analysis to understand your genetic predispositions. You keep your data for life and can use it for ongoing health insights. We can often assess your concerns and make suggestions without requiring full genome sequencing—we'll discuss what's best for your situation.</p>
                         </div>
                     </div>
@@ -304,7 +324,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
 

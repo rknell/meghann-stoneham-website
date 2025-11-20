@@ -438,3 +438,19 @@ console.log('%c👋 Welcome to Meghann Stoneham\'s Website', 'font-size: 20px; f
 console.log('%cFind the root cause. Treat from within.', 'font-size: 14px; color: #64748b;');
 console.log('%cBook a consultation: 0452 319 179', 'font-size: 14px; color: #2563eb;');
 
+// ===================================
+// Service Worker Registration
+// ===================================
+
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('Service Worker registered successfully:', registration.scope);
+            })
+            .catch(error => {
+                console.log('Service Worker registration failed:', error);
+            });
+    });
+}
+
