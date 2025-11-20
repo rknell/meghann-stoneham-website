@@ -260,10 +260,11 @@ p {
 
 /* Hero with background image */
 .hero.with-image {
-    background-image: url('/heroimage.png');
+    background-image: url('heroimage.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: scroll; /* Better for mobile */
 }
 
 .hero.with-image::before {
@@ -438,16 +439,20 @@ p {
 .about-image {
     position: sticky;
     top: 100px;
+    max-width: 100%;
+    overflow: hidden; /* Prevent overflow on mobile */
 }
 
 .portrait-image {
     width: 100%;
+    max-width: 100%;
     height: auto;
     aspect-ratio: 3/4;
     object-fit: cover;
     border-radius: 20px;
     box-shadow: var(--shadow-xl);
     transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    display: block; /* Prevents inline spacing issues */
 }
 
 .portrait-image:hover {
@@ -993,6 +998,13 @@ p {
     .about-image {
         position: relative;
         top: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .portrait-image {
+        width: 100%;
+        max-width: 100%;
     }
     
     .hero-stats {
@@ -1013,6 +1025,18 @@ p {
     
     .footer-content {
         grid-template-columns: 1fr;
+    }
+    
+    /* Ensure hero background image displays properly on mobile */
+    .hero.with-image {
+        background-attachment: scroll;
+        min-height: 500px;
+    }
+    
+    /* Fix image container overflow */
+    img {
+        max-width: 100%;
+        height: auto;
     }
 }
 
