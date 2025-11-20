@@ -302,12 +302,13 @@ approachSteps.forEach(step => {
 
 const ctaButton = document.querySelector('.cta-button');
 if (ctaButton) {
-    // Add subtle pulse effect every 3 seconds
+    // Add subtle pulse effect every 5 seconds using class-based approach
+    // This preserves the fade-in animation while adding pulse effect
     setInterval(() => {
-        ctaButton.style.animation = 'none';
+        ctaButton.classList.add('pulse-active');
         setTimeout(() => {
-            ctaButton.style.animation = 'pulse 0.5s ease';
-        }, 10);
+            ctaButton.classList.remove('pulse-active');
+        }, 500);
     }, 5000);
 }
 
@@ -317,6 +318,9 @@ style.textContent = `
     @keyframes pulse {
         0%, 100% { transform: scale(1); }
         50% { transform: scale(1.05); }
+    }
+    .cta-button.pulse-active {
+        animation: pulse 0.5s ease;
     }
 `;
 document.head.appendChild(style);
