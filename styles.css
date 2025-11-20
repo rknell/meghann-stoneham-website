@@ -84,6 +84,13 @@ p {
     font-size: 1.25rem;
     font-weight: 500;
     color: var(--dark-gray);
+    transition: color var(--transition-normal), text-shadow var(--transition-normal);
+}
+
+.lead.over-hero {
+    color: var(--white);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4), 
+                 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 /* ===================================
@@ -101,6 +108,13 @@ p {
     text-align: center;
     margin-bottom: var(--spacing-sm);
     position: relative;
+    transition: color var(--transition-normal), text-shadow var(--transition-normal);
+}
+
+.section-title.over-hero {
+    color: var(--white);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4), 
+                 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
 .section-title::after {
@@ -111,6 +125,11 @@ p {
     background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
     margin: var(--spacing-sm) auto;
     border-radius: 2px;
+    transition: background var(--transition-normal);
+}
+
+.section-title.over-hero::after {
+    background: linear-gradient(90deg, var(--white), var(--accent-blue));
 }
 
 .section-subtitle {
@@ -237,6 +256,42 @@ p {
     background: linear-gradient(135deg, var(--primary-blue) 0%, var(--navy-blue) 100%);
     color: var(--white);
     overflow: hidden;
+}
+
+/* Hero with background image */
+.hero.with-image {
+    background-image: url('/heroimage.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero.with-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Darker overlay for better text contrast - adjust opacity values if needed */
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.80) 0%, rgba(30, 58, 138, 0.90) 100%);
+    z-index: 0;
+}
+
+/* Additional text shadow for hero text when using background image */
+.hero.with-image .hero-title {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 
+                 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.hero.with-image .hero-subtitle {
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5), 
+                 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.hero.with-image .stat h3,
+.hero.with-image .stat p {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero::before {
@@ -385,6 +440,21 @@ p {
     top: 100px;
 }
 
+.portrait-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: var(--shadow-xl);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.portrait-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 35px -5px rgba(0, 0, 0, 0.15);
+}
+
 .image-placeholder {
     background: linear-gradient(135deg, var(--light-blue) 0%, var(--accent-blue) 100%);
     aspect-ratio: 3/4;
@@ -401,6 +471,14 @@ p {
 
 .about-intro {
     margin-bottom: var(--spacing-md);
+    transition: color var(--transition-normal);
+}
+
+.about-intro.over-hero,
+.about-intro.over-hero * {
+    color: var(--white);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4), 
+                 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .philosophy-box {
@@ -522,10 +600,16 @@ p {
     margin-bottom: var(--spacing-lg);
 }
 
-.approach-steps {
+.philosophy-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .approach-step {
@@ -603,57 +687,90 @@ p {
     color: var(--light-blue);
 }
 
-.booking-details {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-md);
+.booking-main {
     margin-bottom: var(--spacing-lg);
 }
 
-.booking-card {
+.booking-main {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.location-info {
+    font-size: 0.95rem;
+    color: var(--dark-gray);
+    margin-top: var(--spacing-md);
+    margin-bottom: 0;
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--light-gray);
+    text-align: center;
+}
+
+.rates-section {
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    padding: var(--spacing-md);
+    padding: var(--spacing-lg);
     border-radius: 15px;
-    text-align: center;
+    margin-bottom: var(--spacing-lg);
     border: 2px solid rgba(255, 255, 255, 0.2);
-    transition: all var(--transition-normal);
 }
 
-.booking-card:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    transform: translateY(-5px);
-}
-
-.booking-card h3 {
+.rates-section h3 {
     color: var(--white);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    font-size: 1.75rem;
+}
+
+.rates-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.rate-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: var(--spacing-md);
+    border-radius: 10px;
+    border-left: 4px solid var(--accent-blue);
+}
+
+.rate-item h4 {
+    color: var(--white);
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.25rem;
+}
+
+.rate-price {
+    color: var(--accent-blue);
+    font-size: 1.5rem;
+    font-weight: 600;
     margin-bottom: var(--spacing-sm);
 }
 
-.price {
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--white);
-}
-
-.price span {
-    font-size: 1.5rem;
-    color: var(--accent-blue);
-}
-
-.location-text {
-    font-size: 1.125rem;
+.rate-description {
     color: var(--light-blue);
+    font-size: 0.95rem;
+    line-height: 1.6;
     margin: 0;
 }
 
 .contact-card {
     background-color: rgba(255, 255, 255, 0.95);
     color: var(--navy-blue);
+    padding: var(--spacing-lg);
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--shadow-xl);
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .contact-card h3 {
     color: var(--navy-blue);
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-md);
 }
 
 .phone-button {
@@ -890,11 +1007,7 @@ p {
         grid-template-columns: 1fr;
     }
     
-    .approach-steps {
-        grid-template-columns: 1fr;
-    }
-    
-    .booking-details {
+    .rates-content {
         grid-template-columns: 1fr;
     }
     

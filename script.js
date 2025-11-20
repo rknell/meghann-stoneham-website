@@ -360,6 +360,77 @@ window.addEventListener('scroll', throttledNavbar);
 window.addEventListener('scroll', throttledActiveLink);
 
 // ===================================
+// Section Title and Content Color Change on Hero Overlap
+// ===================================
+
+function updateSectionTitleColors() {
+    const hero = document.querySelector('.hero');
+    const sectionTitles = document.querySelectorAll('.section-title');
+    const leadParagraphs = document.querySelectorAll('.about-content .lead');
+    const aboutIntro = document.querySelector('.about-intro');
+    
+    if (!hero) return;
+    
+    const heroRect = hero.getBoundingClientRect();
+    
+    // Update section titles
+    sectionTitles.forEach(title => {
+        const titleRect = title.getBoundingClientRect();
+        
+        // Check if the title overlaps with the hero section
+        const isOverlapping = (
+            titleRect.bottom > heroRect.top &&
+            titleRect.top < heroRect.bottom
+        );
+        
+        if (isOverlapping) {
+            title.classList.add('over-hero');
+        } else {
+            title.classList.remove('over-hero');
+        }
+    });
+    
+    // Update lead paragraphs
+    leadParagraphs.forEach(lead => {
+        const leadRect = lead.getBoundingClientRect();
+        
+        const isOverlapping = (
+            leadRect.bottom > heroRect.top &&
+            leadRect.top < heroRect.bottom
+        );
+        
+        if (isOverlapping) {
+            lead.classList.add('over-hero');
+        } else {
+            lead.classList.remove('over-hero');
+        }
+    });
+    
+    // Update about intro section
+    if (aboutIntro) {
+        const introRect = aboutIntro.getBoundingClientRect();
+        
+        const isOverlapping = (
+            introRect.bottom > heroRect.top &&
+            introRect.top < heroRect.bottom
+        );
+        
+        if (isOverlapping) {
+            aboutIntro.classList.add('over-hero');
+        } else {
+            aboutIntro.classList.remove('over-hero');
+        }
+    }
+}
+
+// Throttle the function for performance
+const throttledTitleColorUpdate = throttle(updateSectionTitleColors, 16);
+
+window.addEventListener('scroll', throttledTitleColorUpdate);
+window.addEventListener('load', updateSectionTitleColors);
+window.addEventListener('resize', updateSectionTitleColors);
+
+// ===================================
 // Console Welcome Message
 // ===================================
 
