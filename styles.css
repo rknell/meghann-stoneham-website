@@ -543,6 +543,79 @@ p {
 }
 
 /* ===================================
+   Team Section
+   =================================== */
+
+.team {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--white);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.team-member {
+    background-color: var(--white);
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+    border: 2px solid transparent;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-blue);
+}
+
+.team-image {
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--light-gray);
+}
+
+.team-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-normal);
+}
+
+.team-member:hover .team-image img {
+    transform: scale(1.05);
+}
+
+.team-info {
+    padding: var(--spacing-md);
+}
+
+.team-info h3 {
+    color: var(--navy-blue);
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.75rem;
+}
+
+.team-role {
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.team-description {
+    color: var(--gray);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ===================================
    Services Section
    =================================== */
 
@@ -1012,6 +1085,10 @@ p {
     
     .stat h3 {
         font-size: 2rem;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
     }
     
     .services-grid {
